@@ -155,6 +155,58 @@ const Home: React.FC = () => {
     'JOIN THE ANIMATION REVOLUTION NOW'
   ], []);
 
+  // Прелоадинг видео для лучшей производительности
+  useEffect(() => {
+    // Список видео для предзагрузки
+    const videoSources = [
+      '/videos/video_hero_1.mp4',
+      '/videos/videoAI_2.mp4'
+    ];
+
+    const preloadVideos = () => {
+      videoSources.forEach((src, index) => {
+        const video = document.createElement('video');
+        video.preload = 'metadata'; // Загружаем только метаданные сначала
+        video.muted = true; // Убеждаемся, что видео без звука
+        
+        // Добавляем обработчики событий для отслеживания загрузки
+        video.addEventListener('loadedmetadata', () => {
+          console.log(`Video metadata loaded: ${src}`);
+          // После загрузки метаданных, устанавливаем preload="auto" для полной загрузки
+          video.preload = 'auto';
+        });
+
+        video.addEventListener('canplaythrough', () => {
+          console.log(`Video can play through: ${src}`);
+          // Добавляем атрибут data для отслеживания готовности видео
+          video.setAttribute('data-preloaded', 'true');
+        });
+
+        video.addEventListener('error', (e) => {
+          console.error(`Error loading video: ${src}`, e);
+        });
+
+        video.src = src;
+        
+        // Добавляем видео в DOM для кэширования (скрытое)
+        video.style.display = 'none';
+        video.style.position = 'absolute';
+        video.style.top = '-9999px';
+        document.body.appendChild(video);
+      });
+    };
+
+    // Запускаем прелоадинг с небольшой задержкой
+    const preloadTimer = setTimeout(preloadVideos, 1000);
+
+    return () => {
+      clearTimeout(preloadTimer);
+      // Очищаем созданные видео элементы при размонтировании
+      const preloadedVideos = document.querySelectorAll('video[style*="display: none"]');
+      preloadedVideos.forEach(video => video.remove());
+    };
+  }, []);
+
   useEffect(() => {
     // Intersection Observer для scroll reveal эффектов
     const observerOptions = {
@@ -348,7 +400,8 @@ const Home: React.FC = () => {
           muted 
           loop 
           playsInline
-          preload="auto"
+          preload="metadata"
+          data-video-id="hero"
         >
           <source src="/videos/video_hero_1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -477,7 +530,8 @@ const Home: React.FC = () => {
             muted 
             loop 
             playsInline
-            preload="none"
+            preload="metadata"
+            data-video-id="section"
           >
             <source src="/videos/videoAI_2.mp4" type="video/mp4" />
             Your browser does not support the video tag.

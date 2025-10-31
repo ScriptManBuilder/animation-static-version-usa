@@ -48,6 +48,63 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
+  }
+  
+  /* Стили для лучшей производительности после завершения начальной загрузки */
+  body.initial-load-complete {
+    /* Включаем аппаратное ускорение для плавных анимаций */
+    * {
+      will-change: auto;
+    }
+    
+    /* Оптимизация анимаций */
+    video {
+      will-change: transform, opacity;
+    }
+    
+    [data-animate] {
+      will-change: transform, opacity;
+    }
+  }
+  
+  /* Стили для видео элементов */
+  video {
+    /* Оптимизация производительности видео */
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    
+    /* Улучшение качества воспроизведения */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  /* Стили для предзагруженных элементов */
+  [data-preloaded="true"] {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Прогрессивное улучшение для старых браузеров */
+  @supports not (backdrop-filter: blur(10px)) {
+    .loader-blur-fallback {
+      background: rgba(15, 15, 35, 0.95) !important;
+    }
+  }
+  
+  /* Оптимизация для устройств с низким разрешением */
+  @media (max-resolution: 150dpi) {
+    video {
+      image-rendering: optimizeSpeed;
+    }
+  }
+  
+  /* Оптимизация для устройств с высоким разрешением */
+  @media (min-resolution: 200dpi) {
+    video {
+      image-rendering: optimizeQuality;
+    }
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
