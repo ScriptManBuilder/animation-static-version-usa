@@ -86,16 +86,36 @@ const Account: React.FC = () => {
 
   // Данные курсов иллюстрации из products.ts
   const testAccountCourses = products.map(product => {
-    const courseVideos = [];
+    // Определяем количество видео в зависимости от ID курса
+    let videoCount = 1;
     
-    // Добавляем основное видео превью
-    if (product.video) {
-      courseVideos.push(product.video);
+    if (product.id >= 1 && product.id <= 4) {
+      videoCount = 1;
+    } else if (product.id >= 5 && product.id <= 8) {
+      videoCount = 2;
+    } else if (product.id >= 9 && product.id <= 11) {
+      videoCount = 3;
+    } else if (product.id >= 12 && product.id <= 15) {
+      videoCount = 4;
+    } else if (product.id >= 16 && product.id <= 17) {
+      videoCount = 5;
     }
     
-    // Добавляем дополнительные видео для премиум курсов
-    if (product.videos) {
-      courseVideos.push(...product.videos);
+    // Собираем все доступные видео
+    const allVideos = [];
+    if (product.video) {
+      allVideos.push(product.video);
+    }
+    if (product.videos && product.videos.length > 0) {
+      allVideos.push(...product.videos);
+    }
+    
+    // Берем только нужное количество видео
+    const courseVideos = allVideos.slice(0, videoCount);
+    
+    // Если видео меньше чем нужно, дублируем последнее
+    while (courseVideos.length < videoCount && courseVideos.length > 0) {
+      courseVideos.push(courseVideos[courseVideos.length - 1]);
     }
     
     return {
@@ -103,7 +123,8 @@ const Account: React.FC = () => {
       title: product.name,
       description: product.description,
       price: `$${product.price}`,
-      videos: courseVideos
+      videos: courseVideos,
+      videoCount: videoCount
     };
   });
 
@@ -262,15 +283,35 @@ const Account: React.FC = () => {
                   flexDirection: isMobile ? 'column' : 'row',
                   gap: isMobile ? '10px' : '0'
                 }}>
-                  <div style={{ textAlign: isMobile ? 'center' : 'left' }}>
+                  <div style={{ textAlign: isMobile ? 'center' : 'left', flex: 1 }}>
                     <div style={{ 
-                      fontSize: isMobile ? '0.8rem' : '0.9rem',
-                      opacity: 0.9, 
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px',
                       marginBottom: '5px',
-                      textTransform: 'uppercase',
-                      letterSpacing: '1px'
+                      flexWrap: 'wrap',
+                      justifyContent: isMobile ? 'center' : 'flex-start'
                     }}>
-                      Course {index + 1} of {testAccountCourses.length}
+                      <div style={{ 
+                        fontSize: isMobile ? '0.8rem' : '0.9rem',
+                        opacity: 0.9,
+                        textTransform: 'uppercase',
+                        letterSpacing: '1px'
+                      }}>
+                        Course {index + 1} of {testAccountCourses.length}
+                      </div>
+                      <div style={{
+                        background: 'rgba(255,255,255,0.3)',
+                        padding: '4px 12px',
+                        borderRadius: '15px',
+                        fontSize: '0.75rem',
+                        fontWeight: '700',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.5px',
+                        backdropFilter: 'blur(10px)'
+                      }}>
+                        {course.videoCount} {course.videoCount === 1 ? 'VIDEO' : 'VIDEOS'}
+                      </div>
                     </div>
                     <h3 style={{ 
                       fontSize: isMobile ? '1.1rem' : '1.4rem',
@@ -396,7 +437,23 @@ const Account: React.FC = () => {
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                           <span style={{ color: '#718096', fontSize: '0.95rem' }}>Duration</span>
                           <span style={{ fontWeight: '600', color: '#2d3748' }}>
-                            {course.id <= 4 ? '18-42 min' : course.id <= 7 ? '38-54 min' : '28-60 min'}
+                            {course.id === 1 ? '3 min' : 
+                             course.id === 2 ? '5 min' : 
+                             course.id === 3 ? '7 min' : 
+                             course.id === 4 ? '8 min' : 
+                             course.id === 5 ? '10 min' : 
+                             course.id === 6 ? '12 min' : 
+                             course.id === 7 ? '15 min' : 
+                             course.id === 8 ? '18 min' : 
+                             course.id === 9 ? '22 min' : 
+                             course.id === 10 ? '25 min' : 
+                             course.id === 11 ? '28 min' : 
+                             course.id === 12 ? '32 min' :
+                             course.id === 13 ? '35 min' :
+                             course.id === 14 ? '24 min' :
+                             course.id === 15 ? '28 min' :
+                             course.id === 16 ? '32 min' :
+                             course.id === 17 ? '40 min' : '30 min'}
                           </span>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>

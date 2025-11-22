@@ -323,11 +323,37 @@ const OptimizedProductCard: React.FC<OptimizedProductCardProps> = memo(({
   return (
     <CardContainer onClick={handleCardClick}>
       <ImageContainer>
-        {product.videos && product.videos.length > 1 && (
-          <VideoBadge>
-            {product.videos.length} Videos
-          </VideoBadge>
-        )}
+        {/* Показываем количество видео для всех курсов */}
+        {(() => {
+          let videoCount = 1; // По умолчанию 1 видео
+          
+          // Курсы 1-4: 1 видео
+          if (product.id >= 1 && product.id <= 4) {
+            videoCount = 1;
+          }
+          // Курсы 5-8: 2 видео
+          else if (product.id >= 5 && product.id <= 8) {
+            videoCount = 2;
+          }
+          // Курсы 9-11: 3 видео
+          else if (product.id >= 9 && product.id <= 11) {
+            videoCount = 3;
+          }
+          // Курсы 12-15: 4 видео
+          else if (product.id >= 12 && product.id <= 15) {
+            videoCount = 4;
+          }
+          // Курсы 16-17: 5 видео
+          else if (product.id >= 16 && product.id <= 17) {
+            videoCount = 5;
+          }
+          
+          return (
+            <VideoBadge>
+              {videoCount} {videoCount === 1 ? 'VIDEO' : 'VIDEOS'}
+            </VideoBadge>
+          );
+        })()}
         
         {product.video && (
           <MediaToggle onClick={toggleMedia}>
