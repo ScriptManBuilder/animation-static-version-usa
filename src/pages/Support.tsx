@@ -124,7 +124,6 @@ const Support: React.FC = () => {
                 </ContactIcon>
                 <ContactContent>
                   <ContactTitle>Our Address</ContactTitle>
-                  <ContactInfo style={{ marginBottom: '10px' }}>Visit us or send mail to:</ContactInfo>
                   <ContactAddress>
                     The Williams Collection Inc.<br />
                     E 2ND ST 5830<br />
