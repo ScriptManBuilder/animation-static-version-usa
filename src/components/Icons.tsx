@@ -17,6 +17,7 @@ import {
 } from 'react-icons/fi';
 import { FaTiktok, FaDiscord, FaPinterest } from 'react-icons/fa';
 import { AiOutlineClockCircle } from 'react-icons/ai';
+import { HiOutlineLocationMarker } from 'react-icons/hi';
 
 interface IconProps {
   size?: number;
@@ -43,3 +44,4 @@ export const PlusIcon: React.FC<IconProps> = (props) => React.createElement(FiPl
 export const TrashIcon: React.FC<IconProps> = (props) => React.createElement(FiTrash2 as any, props);
 export const ShoppingBagIcon: React.FC<IconProps> = (props) => React.createElement(FiShoppingBag as any, props);
 export const ClockIcon: React.FC<IconProps> = (props) => React.createElement(AiOutlineClockCircle as any, props);
+export const MapPinIcon: React.FC<IconProps> = (props) => React.createElement(HiOutlineLocationMarker as any, props);

@@ -189,62 +189,32 @@ export const CheckoutButton = styled.div`
   
   button, a {
     width: 100% !important;
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    background: #10b981 !important;
     color: white !important;
     border: none !important;
-    border-radius: 16px !important;
-    font-size: 1.2rem !important;
-    font-weight: 800 !important;
-    letter-spacing: 1px !important;
-    text-transform: uppercase !important;
-    padding: 18px 32px !important;
-    min-height: 60px !important;
+    border-radius: 8px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    padding: 12px 24px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    box-shadow: 
-      0 8px 24px rgba(16, 185, 129, 0.4),
-      0 0 0 1px rgba(255, 255, 255, 0.1) !important;
-    position: relative !important;
-    overflow: hidden !important;
+    transition: all 0.2s ease !important;
     text-decoration: none !important;
-    
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.6s ease;
-    }
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2) !important;
     
     &:hover {
-      background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
-      transform: translateY(-3px) scale(1.02) !important;
-      box-shadow: 
-        0 12px 32px rgba(16, 185, 129, 0.6),
-        0 0 0 1px rgba(255, 255, 255, 0.2) !important;
-      
-      &::before {
-        left: 100%;
-      }
+      background: #059669 !important;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
     }
     
     &:active {
-      transform: translateY(-1px) scale(1.01) !important;
-      box-shadow: 
-        0 6px 20px rgba(16, 185, 129, 0.5),
-        0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+      transform: translateY(1px) !important;
     }
 
     @media (max-width: 768px) {
-      font-size: 1.1rem !important;
-      padding: 16px 24px !important;
-      min-height: 56px !important;
-      border-radius: 14px !important;
+      font-size: 0.95rem !important;
+      padding: 11px 20px !important;
     }
 
     @media (max-width: 480px) {

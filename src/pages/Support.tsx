@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MailIcon, PhoneIcon, ClockIcon } from '../components/Icons';
+import { MailIcon, PhoneIcon, ClockIcon, MapPinIcon } from '../components/Icons';
 import { CONTACT_INFO } from '../config/constants';
 import {
   SupportWrapper,
@@ -18,6 +18,7 @@ import {
   ContactInfo,
   ContactLink,
   ContactText,
+  ContactAddress,
   FAQSection,
   FAQItem,
   FAQQuestion,
@@ -69,7 +70,7 @@ const Support: React.FC = () => {
           <HeroContent>
             <HeroTitle>Student Support</HeroTitle>
             <HeroSubtitle>
-              We're here to help you succeed. Get expert assistance with your AI learning journey from our dedicated support team.
+              We're here to help you succeed. Get expert assistance with your learning journey from our dedicated support team.
             </HeroSubtitle>
           </HeroContent>
         </Container>
@@ -112,8 +113,23 @@ const Support: React.FC = () => {
                 </ContactIcon>
                 <ContactContent>
                   <ContactTitle>Business Hours</ContactTitle>
-                  <ContactInfo>Monday - Friday: 9:00 AM - 6:00 PM GMT</ContactInfo>
+                  <ContactInfo>Monday - Friday: 9:00 AM - 6:00 PM MST</ContactInfo>
                   <ContactInfo style={{ marginTop: '5px' }}>Weekend: Emergency support only</ContactInfo>
+                </ContactContent>
+              </ContactCard>
+              
+              <ContactCard>
+                <ContactIcon>
+                  <MapPinIcon size={isMobile ? 24 : 32} />
+                </ContactIcon>
+                <ContactContent>
+                  <ContactTitle>Our Address</ContactTitle>
+                  <ContactInfo style={{ marginBottom: '10px' }}>Visit us or send mail to:</ContactInfo>
+                  <ContactAddress>
+                    The Williams Collection Inc.<br />
+                    E 2ND ST 5830<br />
+                    Casper WY US 82609
+                  </ContactAddress>
                 </ContactContent>
               </ContactCard>
             </ContactMethodsGrid>

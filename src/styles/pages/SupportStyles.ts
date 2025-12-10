@@ -123,6 +123,7 @@ export const SectionTitle = styled.h2`
   color: #2c3e50;
   margin-bottom: 50px;
   position: relative;
+  text-align: center;
   
   @media (max-width: 768px) {
     font-size: 2rem;
@@ -155,8 +156,8 @@ export const SectionTitle = styled.h2`
 
 export const ContactMethodsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
   margin-bottom: 50px;
   
   @media (max-width: 768px) {
@@ -172,50 +173,50 @@ export const ContactMethodsGrid = styled.div`
 `;
 
 export const ContactCard = styled.div`
-  background: #f8f9fa;
-  padding: 40px 30px;
-  border-radius: 15px;
+  background: white;
+  padding: 20px 18px;
+  border-radius: 12px;
   text-align: center;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
+  border: 2px solid #e0e4e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   
   @media (max-width: 768px) {
-    padding: 30px 20px;
+    padding: 20px 18px;
   }
   
   @media (max-width: 480px) {
-    padding: 25px 15px;
+    padding: 18px 15px;
     border-radius: 10px;
   }
   
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
     border-color: #667eea;
-    background: white;
     
     @media (max-width: 480px) {
-      transform: translateY(-5px);
+      transform: translateY(-3px);
     }
   }
 `;
 
 export const ContactIcon = styled.div`
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   background: linear-gradient(135deg, #667eea, #764ba2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px;
+  margin: 0 auto 15px;
   color: white;
   transition: all 0.3s ease;
   
   @media (max-width: 480px) {
     width: 60px;
     height: 60px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
   }
   
   ${ContactCard}:hover & {
@@ -230,25 +231,26 @@ export const ContactIcon = styled.div`
 export const ContactContent = styled.div``;
 
 export const ContactTitle = styled.h3`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #2c3e50;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   
   @media (max-width: 480px) {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
   }
 `;
 
 export const ContactInfo = styled.p`
   color: #6c757d;
-  margin-bottom: 15px;
-  line-height: 1.6;
+  margin-bottom: 6px;
+  line-height: 1.5;
+  font-size: 0.95rem;
   
   @media (max-width: 480px) {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
   }
 `;
 
@@ -278,6 +280,17 @@ export const ContactText = styled.span`
   
   @media (max-width: 480px) {
     font-size: 1rem;
+  }
+`;
+
+export const ContactAddress = styled.div`
+  color: #667eea;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.6;
+  
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
   }
 `;
 

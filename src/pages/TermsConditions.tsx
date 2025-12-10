@@ -84,6 +84,15 @@ const TermsConditions: React.FC = () => {
           <strong>Billing Descriptor:</strong> Charges will appear on your credit card statement as "ANIMATION COURSES" or "ANIMATION-LEARN.COM". 
           This is how the charge will appear on your cardholder's billing statement.
         </Paragraph>
+        <Paragraph>
+          <strong>One-Time Purchase:</strong> Unless otherwise explicitly stated at the time of purchase, all Products and Services offered through this Website are sold on a one-time purchase basis. By placing an order, you agree that payment is final and no future automatic or recurring charges will be applied.
+        </Paragraph>
+        <Paragraph>
+          <strong>Payment Timing and Methods:</strong> Payment is required at the time you place your order (i.e. before any access, download or delivery). We accept the payment methods displayed on the checkout page.
+        </Paragraph>
+        <Paragraph>
+          <strong>No Subscription or Renewal by Default:</strong> This purchase does not constitute a subscription. You will not be enrolled in any ongoing payment plan, and there is no automatic renewal. If you wish to make additional purchases, you will need to place a new order.
+        </Paragraph>
       </Section>
 
       <Section>

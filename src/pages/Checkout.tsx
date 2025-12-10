@@ -1187,6 +1187,27 @@ const Checkout: React.FC = () => {
               <span>{formatPrice(total)}</span>
             </TotalRow>
 
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              gap: '12px', 
+              marginTop: '20px',
+              paddingTop: '20px',
+              borderTop: '1px solid var(--minimal-gray-200)'
+            }}>
+              <img 
+                src="/images/visa.svg" 
+                alt="Visa" 
+                style={{ height: '30px', width: 'auto', objectFit: 'contain' }} 
+              />
+              <img 
+                src="/images/mastercard.svg" 
+                alt="Mastercard" 
+                style={{ height: '30px', width: 'auto', objectFit: 'contain' }} 
+              />
+            </div>
+
             <div style={{ fontSize: '0.8rem', color: 'var(--minimal-gray-400)', marginTop: '20px', lineHeight: '1.6' }}>
               <p style={{ display: 'flex', alignItems: 'center', margin: '8px 0' }}>
                 <span style={{ marginRight: '8px' }}>🎓</span>

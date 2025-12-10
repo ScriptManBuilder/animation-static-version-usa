@@ -106,13 +106,9 @@ const Cart: React.FC = () => {
               <span>{formatPrice(total)}</span>
             </SummaryRow>
 
-            <Button as={Link} to="/checkout" variant="primary">
-              Proceed to Checkout
-            </Button>
-            
-            {/* <div style={{ textAlign: 'center', marginTop: '15px', fontSize: '0.85rem', color: '#9ca3af' }}>
-              Accept 4 payment methods
-            </div> */}
+            <CheckoutButton>
+              <Link to="/checkout">Proceed to Checkout</Link>
+            </CheckoutButton>
           </CartSummary>
         </CartContent>
 
