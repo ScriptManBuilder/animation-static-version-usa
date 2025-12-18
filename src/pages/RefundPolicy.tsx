@@ -129,7 +129,29 @@ const RefundPolicy: React.FC = () => {
       </Section>
 
       <Section>
-        <SectionTitle>7. Alternative Solutions</SectionTitle>
+        <SectionTitle>7. Cancellation Policy</SectionTitle>
+        <Paragraph>
+          If you would like to cancel your purchase or to submit a refund request, please send us an email.
+        </Paragraph>
+        <Paragraph>
+          Please allow up to 48 hours for our customer support team to process your refund or cancellation request. Our support team will contact you to confirm that your refund has been processed or to ask for additional information if needed.
+        </Paragraph>
+        <Paragraph>
+          All refunds will be issued in the form of payment in which they were made. Please allow 5–7 business days for processing and for the refund to be credited to your account.
+        </Paragraph>
+        <Paragraph>
+          If you have any questions or concerns we are happy to assist you through <br></br>email: {CONTACT_INFO.email}
+        </Paragraph>
+        <Paragraph>
+          Refund requests must be made within thirty (30) days of your purchase date.
+        </Paragraph>
+        <Paragraph>
+          If you are not satisfied with the product, you may call or email customer service to request a refund within 30 days of purchase. All refunds should appear back on your credit card in 5–7 business days after calling customer service at {CONTACT_INFO.phoneFormatted} or emailing {CONTACT_INFO.email} to cancel your order and request a refund. We stand by our products and accept returns within 30 days of purchase.
+        </Paragraph>
+      </Section>
+
+      <Section>
+        <SectionTitle>8. Alternative Solutions</SectionTitle>
         <Paragraph>
           Before requesting a refund, consider these alternatives:
         </Paragraph>
@@ -142,7 +164,7 @@ const RefundPolicy: React.FC = () => {
       </Section>
 
       <Section>
-        <SectionTitle>8. Dispute Resolution</SectionTitle>
+        <SectionTitle>9. Dispute Resolution</SectionTitle>
         <Paragraph>
           If you disagree with our refund decision, you may escalate your request to our management team 
           by emailing {CONTACT_INFO.email} with "Refund Appeal" in the subject line. All appeals 
@@ -151,7 +173,7 @@ const RefundPolicy: React.FC = () => {
       </Section>
 
       <Section>
-        <SectionTitle>9. Special Circumstances</SectionTitle>
+        <SectionTitle>10. Special Circumstances</SectionTitle>
         <Paragraph>
           We understand that exceptional circumstances may arise. For cases involving medical emergencies, 
           technical platform issues, or other extraordinary situations, please contact our support team 
@@ -160,7 +182,7 @@ const RefundPolicy: React.FC = () => {
       </Section>
 
       <Section>
-        <SectionTitle>10. Contact Information</SectionTitle>
+        <SectionTitle>11. Contact Information</SectionTitle>
         <Paragraph>
           For refund requests or questions about this policy, please contact us:
         </Paragraph>
