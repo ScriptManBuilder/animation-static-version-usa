@@ -30,8 +30,7 @@ const Cart: React.FC = () => {
   const { formatPrice } = usePrice();
 
   const subtotal = state.total;
-  const shipping = subtotal > 50 ? 0 : 12.00;
-  const total = subtotal + shipping;
+  const total = subtotal; // No shipping for digital courses
 
   if (state.items.length === 0) {
     return (
