@@ -992,13 +992,9 @@ const Checkout: React.FC = () => {
                   value={formData.country}
                   onChange={handleInputChange}
                   required
+                  disabled
                 >
-                  <option value="United Kingdom">United Kingdom</option>
                   <option value="United States">United States</option>
-                  <option value="Canada">Canada</option>
-                  <option value="Australia">Australia</option>
-                  <option value="Germany">Germany</option>
-                  <option value="France">France</option>
                 </Select>
               </FormGroup>
             </FormSection>

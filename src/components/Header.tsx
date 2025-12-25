@@ -5,7 +5,6 @@ import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
 import { usePrice } from '../hooks/usePrice';
 import ProductsDropdown from './ProductsDropdown';
-import CurrencyToggle from './CurrencyToggle';
 import { CONTACT_INFO, COMPANY_INFO } from '../config/constants';
 import {
   HeaderWrapper,
@@ -59,7 +58,6 @@ const Header: React.FC = () => {
   };
 
   const handleProductsMouseEnter = () => {
-    console.log('Mouse entered CATALOG'); // Временная отладка
     isMouseOverProducts.current = true;
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -228,8 +226,6 @@ const Header: React.FC = () => {
         </NavLinks>
         
         <RightSection>
-          <CurrencyToggle />
-          
           <CartIcon to="/cart">
             <ShoppingCartIcon />
             {state.itemCount > 0 && (

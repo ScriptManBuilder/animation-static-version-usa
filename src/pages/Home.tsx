@@ -171,13 +171,11 @@ const Home: React.FC = () => {
         
         // Добавляем обработчики событий для отслеживания загрузки
         video.addEventListener('loadedmetadata', () => {
-          console.log(`Video metadata loaded: ${src}`);
           // После загрузки метаданных, устанавливаем preload="auto" для полной загрузки
           video.preload = 'auto';
         });
 
         video.addEventListener('canplaythrough', () => {
-          console.log(`Video can play through: ${src}`);
           // Добавляем атрибут data для отслеживания готовности видео
           video.setAttribute('data-preloaded', 'true');
         });
